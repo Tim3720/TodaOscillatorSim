@@ -36,7 +36,7 @@ int main()
     for (size_t i = 0; i < ASteps; i++) {
         const double A = A0 + i * dA;
 #ifdef BIFURKATIONMODE
-        std::ofstream file("BifurkationFull/A_" + std::to_string(A) + ".dat",
+        std::ofstream file("Bifurkation/A_" + std::to_string(A) + ".dat",
             std::ios::trunc);
 #else
         std::ofstream file("Simulations/A_" + std::to_string(A) + ".dat",
@@ -55,8 +55,6 @@ int main()
 
 #ifdef BIFURKATIONMODE
             if (step > 3 * steps / 4 && step % stepsPerPeriod == 0) {
-                // file << std::setprecision(15) << t << "\t" << driver(t, A) << "\t"
-                //      << state[0] << "\t" << state[1] << std::endl;
                 file << std::setprecision(15) << state[0] << std::endl;
             }
 #else
